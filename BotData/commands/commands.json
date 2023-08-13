@@ -1,0 +1,1179 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "perms": [],
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu",
+              "inline": "true"
+            },
+            {
+              "name": "!points",
+              "value": "Check how many points you have!",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF9D47",
+          "title": "",
+          "url": "",
+          "authorname": "Commands",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Current server count: ${dbsVars.guild.memberCount}",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "points",
+      "actions": [
+        {
+          "name": "GetModPointData",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "ModPoints",
+          "varname": "PointAmount",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "PointReply",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF9D47",
+          "title": "${dbsVars.CommandAuthor.displayName}'s points",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Mod Points: ${tempVars.PointAmount}",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Date",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "setup",
+      "perms": [
+        "o5"
+      ],
+      "actions": [
+        {
+          "name": "CheckIfKonrek2",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "Reply",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Starting.",
+              "savetovariable": "",
+              "savetovariabletype": "global"
+            },
+            {
+              "name": "UserToSetup",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToSetup",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "Ping",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "User has been added.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "SetModPointData",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToSetup.id}",
+              "field": "ModPoints",
+              "fieldvalue": "0"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "addpoints",
+      "perms": [
+        "o5"
+      ],
+      "actions": [
+        {
+          "name": "CheckIfKonrek3",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToAddTo",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToAddPointsTo",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "AmountAddition",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "PointsToAdd",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "AddModPointData",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToAddPointsTo.id}",
+              "field": "ModPoints",
+              "oper": "+",
+              "value": "${tempVars.PointsToAdd}"
+            },
+            {
+              "name": "AddedPoints",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Points added.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "minuspoints",
+      "perms": [
+        "o5"
+      ],
+      "actions": [
+        {
+          "name": "CheckIfKonrek4",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToMinusTo",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToMinusPointsFrom",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "AmountTake",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "PointsToTake",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "MinusModPoints",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToMinusPointsFrom.id}",
+              "field": "ModPoints",
+              "oper": "-",
+              "value": "${tempVars.PointsToTake}"
+            },
+            {
+              "name": "PointsRemovedReply",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Points taken.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "checkpoints",
+      "perms": [
+        "o5"
+      ],
+      "actions": [
+        {
+          "name": "CheckIfKonrek5",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToCheckPoints",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "CheckPointsUser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "GetModPointData2",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CheckPointsUser.id}",
+              "field": "ModPoints",
+              "varname": "CheckPointsAmount",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "PointEmbed",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF9D47",
+              "title": "${tempVars.CheckPointsUser.displayName}'s Points",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Points: ${tempVars.CheckPointsAmount}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "kick",
+      "actions": [
+        {
+          "name": "CheckIfKonrek",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "GetUserToKick",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToKick",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "Get Reason To kick",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "KickReason",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "2+"
+            },
+            {
+              "name": "KickThem",
+              "category": "User Action",
+              "type": "Kick User",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToKick.id}",
+              "reason": "${tempVars.KickReason}"
+            },
+            {
+              "name": "KickBanMessage",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "1138969028686258236",
+              "color": "4DEDFF",
+              "title": "Kicked!",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "${dbsVars.CommandAuthor.displayName} kicked ${tempVars.UserToKick.displayName} for ${tempVars.KickReason}\n\nServer: ${dbsVars.guild.name}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "KickPart_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF5252",
+              "title": "Im going to kick YOU",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "actions": [
+        {
+          "name": "DMKonrek1",
+          "category": "Message",
+          "type": "Send DM",
+          "messageActionRows": [],
+          "msgtype": "msg",
+          "userid": "${dbsVars.CommandAuthor.id}",
+          "msg": "Konrek has been alerted, thank you for using cloth.",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "author": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "timestamp": ""
+        },
+        {
+          "name": "DMKonrek2",
+          "category": "Message",
+          "type": "Send DM",
+          "messageActionRows": [],
+          "msgtype": "msg",
+          "userid": "211959812030726144",
+          "msg": "Konrek you've been alerted! In: <#${dbsVars.CommandChannel.id}> by: ${dbsVars.CommandAuthor.displayName}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "author": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "timestamp": ""
+        },
+        {
+          "name": "DeleteAlert",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    },
+    {
+      "name": "ban",
+      "actions": [
+        {
+          "name": "CheckIfKonrek1",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "GetUserToKick_1",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToBan",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "Time",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "BanTime",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "Get Reason To kick_1",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "BanReason",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "3+"
+            },
+            {
+              "name": "BanThem",
+              "category": "User Action",
+              "type": "Ban User",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToBan.id}",
+              "reason": "${tempVars.BanReason}",
+              "days": "1${tempVars.BanTime}"
+            },
+            {
+              "name": "KickBanMessage_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "1138969028686258236",
+              "color": "FF0000",
+              "title": "Banned!",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "${dbsVars.CommandAuthor.displayName} banned ${tempVars.UserToKick.displayName} for ${tempVars.KickReason} \n\nDays: ${tempVars.BanTime}\n\nServer: ${dbsVars.guild.name}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Ban",
+      "actions": [
+        {
+          "name": "CheckIfKonrek1",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "GetUserToKick_1",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToBan",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "Time",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "BanTime",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "Get Reason To kick_1",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "BanReason",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "3+"
+            },
+            {
+              "name": "BanThem",
+              "category": "User Action",
+              "type": "Ban User",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToBan.id}",
+              "reason": "${tempVars.BanReason}",
+              "days": "1${tempVars.BanTime}"
+            },
+            {
+              "name": "KickBanMessage_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "1138969028686258236",
+              "color": "FF0000",
+              "title": "Banned!",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "${dbsVars.CommandAuthor.displayName} banned ${tempVars.UserToKick.displayName} for ${tempVars.KickReason} \n\nDays: ${tempVars.BanTime}\n\nServer: ${dbsVars.guild.name}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Kick",
+      "actions": [
+        {
+          "name": "CheckIfKonrek",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "GetUserToKick",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToKick",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "Get Reason To kick",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "KickReason",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "2+"
+            },
+            {
+              "name": "KickThem",
+              "category": "User Action",
+              "type": "Kick User",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToKick.id}",
+              "reason": "${tempVars.KickReason}"
+            },
+            {
+              "name": "KickBanMessage",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "1138969028686258236",
+              "color": "4DEDFF",
+              "title": "Kicked!",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "${dbsVars.CommandAuthor.displayName} kicked ${tempVars.UserToKick.displayName} for ${tempVars.KickReason}\n\nServer: ${dbsVars.guild.name}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "KickPart_1",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF5252",
+              "title": "Im going to kick YOU",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "false",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "actions": [
+        {
+          "name": "DMKonrek1",
+          "category": "Message",
+          "type": "Send DM",
+          "messageActionRows": [],
+          "msgtype": "msg",
+          "userid": "${dbsVars.CommandAuthor.id}",
+          "msg": "Konrek has been alerted, thank you for using cloth.",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "author": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "timestamp": ""
+        },
+        {
+          "name": "DMKonrek2",
+          "category": "Message",
+          "type": "Send DM",
+          "messageActionRows": [],
+          "msgtype": "msg",
+          "userid": "211959812030726144",
+          "msg": "Konrek you've been alerted! In: <#${dbsVars.CommandChannel.id}> by: ${dbsVars.CommandAuthor.displayName}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "author": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "timestamp": ""
+        },
+        {
+          "name": "DeleteAlert",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    },
+    {
+      "name": "Checkpoints",
+      "actions": [
+        {
+          "name": "CheckIfKonrek5",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToCheckPoints",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "CheckPointsUser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "GetModPointData2",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CheckPointsUser.id}",
+              "field": "ModPoints",
+              "varname": "CheckPointsAmount",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "PointEmbed",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF9D47",
+              "title": "${tempVars.CheckPointsUser.displayName}'s Points",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Points: ${tempVars.CheckPointsAmount}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "CheckPoints",
+      "actions": [
+        {
+          "name": "CheckIfKonrek5",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToCheckPoints",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "CheckPointsUser",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "GetModPointData2",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CheckPointsUser.id}",
+              "field": "ModPoints",
+              "varname": "CheckPointsAmount",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "PointEmbed",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF9D47",
+              "title": "${tempVars.CheckPointsUser.displayName}'s Points",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "Points: ${tempVars.CheckPointsAmount}",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Date",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "MinusPoints",
+      "actions": [
+        {
+          "name": "CheckIfKonrek4",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToMinusTo",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToMinusPointsFrom",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "AmountTake",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "PointsToTake",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "MinusModPoints",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToMinusPointsFrom.id}",
+              "field": "ModPoints",
+              "oper": "-",
+              "value": "${tempVars.PointsToTake}"
+            },
+            {
+              "name": "PointsRemovedReply",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Points taken.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Minuspoints",
+      "actions": [
+        {
+          "name": "CheckIfKonrek4",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToMinusTo",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToMinusPointsFrom",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "AmountTake",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "PointsToTake",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "MinusModPoints",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToMinusPointsFrom.id}",
+              "field": "ModPoints",
+              "oper": "-",
+              "value": "${tempVars.PointsToTake}"
+            },
+            {
+              "name": "PointsRemovedReply",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Points taken.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "AddPoints",
+      "actions": [
+        {
+          "name": "CheckIfKonrek3",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToAddTo",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToAddPointsTo",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "AmountAddition",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "PointsToAdd",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "AddModPointData",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToAddPointsTo.id}",
+              "field": "ModPoints",
+              "oper": "+",
+              "value": "${tempVars.PointsToAdd}"
+            },
+            {
+              "name": "AddedPoints",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Points added.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Addpoints",
+      "actions": [
+        {
+          "name": "CheckIfKonrek3",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "UserToAddTo",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToAddPointsTo",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "AmountAddition",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "PointsToAdd",
+              "vartype": "Number",
+              "savevartype": "temp",
+              "param": "2"
+            },
+            {
+              "name": "AddModPointData",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToAddPointsTo.id}",
+              "field": "ModPoints",
+              "oper": "+",
+              "value": "${tempVars.PointsToAdd}"
+            },
+            {
+              "name": "AddedPoints",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Points added.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Points",
+      "actions": [
+        {
+          "name": "GetModPointData",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "ModPoints",
+          "varname": "PointAmount",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "PointReply",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF9D47",
+          "title": "${dbsVars.CommandAuthor.displayName}'s points",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Mod Points: ${tempVars.PointAmount}",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Date",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "Setup",
+      "actions": [
+        {
+          "name": "CheckIfKonrek2",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "Reply",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Starting.",
+              "savetovariable": "",
+              "savetovariabletype": "global"
+            },
+            {
+              "name": "UserToSetup",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "UserToSetup",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "Ping",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "User has been added.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "SetModPointData",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.UserToSetup.id}",
+              "field": "ModPoints",
+              "fieldvalue": "0"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${dbsVars.CommandAuthor.id}",
+          "valuetocheck": "211959812030726144"
+        }
+      ]
+    },
+    {
+      "name": "Help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu",
+              "inline": "true"
+            },
+            {
+              "name": "!points",
+              "value": "Check how many points you have!",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF9D47",
+          "title": "",
+          "url": "",
+          "authorname": "Commands",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Current server count: ${dbsVars.guild.memberCount}",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}

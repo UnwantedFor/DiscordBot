@@ -1,0 +1,2208 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "40598096-5101-49ea-8ac2-744521bdf667"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 1745,
+      "y": 95,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "!help",
+          "value": "Shows this menu",
+          "inline": "true"
+        },
+        {
+          "name": "!points",
+          "value": "Check how many points you have!",
+          "inline": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "40598096-5101-49ea-8ac2-744521bdf667"
+        }
+      ],
+      "x": 1740,
+      "y": 360,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF9D47",
+        "",
+        "",
+        "Commands",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Current server count: ${dbsVars.guild.memberCount}",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "points",
+      "guid": "2db50d1e-c28f-40ec-92c4-be226055bb0d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "710b8876-eb5e-48cb-a605-fde1281db511"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 68,
+      "y": 1235
+    },
+    {
+      "type": "command",
+      "name": "setup",
+      "guid": "e49b7737-07b3-460a-a851-18529927d58e",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "d810a818-f981-494e-805d-948084393f9e"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 26,
+      "y": 943,
+      "perms": [
+        "o5"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Reply",
+      "guid": "ce547410-7fe1-4e22-a243-7b5fb94043ef",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8ff10431-784a-44e2-8845-c562779b0e77"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "85a67942-cd2a-4ddb-999c-1aabb03f98db"
+        }
+      ],
+      "x": 505,
+      "y": 949,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Starting.",
+        "",
+        "global"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "UserToSetup",
+      "guid": "8ff10431-784a-44e2-8845-c562779b0e77",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "998e480a-dd51-4780-a38d-e6a00c2557dc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ce547410-7fe1-4e22-a243-7b5fb94043ef"
+        }
+      ],
+      "x": 664,
+      "y": 950,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "UserToSetup",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "Ping",
+      "guid": "998e480a-dd51-4780-a38d-e6a00c2557dc",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "5f100926-a4c9-473f-b12a-823187debfb5"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8ff10431-784a-44e2-8845-c562779b0e77"
+        }
+      ],
+      "x": 824,
+      "y": 949,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "User has been added.",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "SetModPointData",
+      "guid": "5f100926-a4c9-473f-b12a-823187debfb5",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "998e480a-dd51-4780-a38d-e6a00c2557dc"
+        }
+      ],
+      "x": 984,
+      "y": 951,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${tempVars.UserToSetup.id}",
+        "ModPoints",
+        "0"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "GetModPointData",
+      "guid": "03123091-fd15-4658-9014-0b648463069f",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "PointAmount",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "f955d224-c765-4c9e-84b9-8bcde95cd050"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "710b8876-eb5e-48cb-a605-fde1281db511"
+        }
+      ],
+      "x": 390,
+      "y": 1233,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "ModPoints",
+        "PointAmount",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "PointReply",
+      "guid": "f955d224-c765-4c9e-84b9-8bcde95cd050",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "03123091-fd15-4658-9014-0b648463069f"
+        }
+      ],
+      "x": 553,
+      "y": 1233,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF9D47",
+        "${dbsVars.CommandAuthor.displayName}'s points",
+        "",
+        "",
+        "",
+        "",
+        "Mod Points: ${tempVars.PointAmount}",
+        "",
+        "",
+        "Date",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "addpoints",
+      "guid": "25e54cbd-421b-4790-b758-b94dffe2f0f5",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "041cb8f1-ed23-455e-8476-83236bfbd096"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 25,
+      "y": 1636,
+      "perms": [
+        "o5"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "UserToAddTo",
+      "guid": "771363ef-bc9c-4d41-8aa0-052e7e26902e",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "6f604c0b-26c9-4313-8616-d425f5e498bc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0bef6fea-72b7-4dc9-be23-7ed33fe1b449"
+        }
+      ],
+      "x": 511,
+      "y": 1639,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "UserToAddPointsTo",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "AddModPointData",
+      "guid": "afd690e1-9aee-48bd-9ba0-871e6894139e",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "6f1ec072-1e03-4375-a14f-cc3cdd54e625"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6f604c0b-26c9-4313-8616-d425f5e498bc"
+        }
+      ],
+      "x": 831,
+      "y": 1638,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.UserToAddPointsTo.id}",
+        "ModPoints",
+        "+",
+        "${tempVars.PointsToAdd}"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "AmountAddition",
+      "guid": "6f604c0b-26c9-4313-8616-d425f5e498bc",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "PointsToAdd",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "afd690e1-9aee-48bd-9ba0-871e6894139e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "771363ef-bc9c-4d41-8aa0-052e7e26902e"
+        }
+      ],
+      "x": 671,
+      "y": 1637,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "PointsToAdd",
+        "Number",
+        "temp",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "minuspoints",
+      "guid": "52ab2800-9098-4bb3-a801-b70902338f16",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "b7a42bcb-0916-406d-befe-a4350d814aba"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 23,
+      "y": 1988,
+      "perms": [
+        "o5"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "UserToMinusTo",
+      "guid": "3a7b8daa-caa7-4cd2-a175-9e743937a8ad",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "1c4b6616-8f80-47d1-ac2d-74665eee8c2a"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1aeddb7c-f916-4dd6-9c0c-63b168b0582e"
+        }
+      ],
+      "x": 506,
+      "y": 1995,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "UserToMinusPointsFrom",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "AmountTake",
+      "guid": "1c4b6616-8f80-47d1-ac2d-74665eee8c2a",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "PointsToTake",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "56748383-e4c9-4885-bcde-e0bc5ea03219"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3a7b8daa-caa7-4cd2-a175-9e743937a8ad"
+        }
+      ],
+      "x": 665,
+      "y": 1997,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "PointsToTake",
+        "Number",
+        "temp",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "MinusModPoints",
+      "guid": "56748383-e4c9-4885-bcde-e0bc5ea03219",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "0f6425e2-2440-487c-af13-de2b94ca1ffc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1c4b6616-8f80-47d1-ac2d-74665eee8c2a"
+        }
+      ],
+      "x": 824,
+      "y": 1999,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.UserToMinusPointsFrom.id}",
+        "ModPoints",
+        "-",
+        "${tempVars.PointsToTake}"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "checkpoints",
+      "guid": "66e89755-1e3c-4f17-bdc3-b4554db23a52",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a2399cb7-a22f-4120-ba74-117805be131f"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 18,
+      "y": 2397,
+      "perms": [
+        "o5"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "UserToCheckPoints",
+      "guid": "196aae5e-411f-413d-af99-846123aabe8b",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "a5f12a5f-ba31-4e2f-a6ce-0f74fb2eac1a"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "040826cb-85d3-4b8e-b4b2-11f9819252ec"
+        }
+      ],
+      "x": 498,
+      "y": 2399,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "CheckPointsUser",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "GetModPointData2",
+      "guid": "a5f12a5f-ba31-4e2f-a6ce-0f74fb2eac1a",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "CheckPointsAmount",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "678abe42-a40a-4543-b9c3-f7a66456ef16"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "196aae5e-411f-413d-af99-846123aabe8b"
+        }
+      ],
+      "x": 660,
+      "y": 2399,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${tempVars.CheckPointsUser.id}",
+        "ModPoints",
+        "CheckPointsAmount",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "PointEmbed",
+      "guid": "678abe42-a40a-4543-b9c3-f7a66456ef16",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a5f12a5f-ba31-4e2f-a6ce-0f74fb2eac1a"
+        }
+      ],
+      "x": 822,
+      "y": 2400,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF9D47",
+        "${tempVars.CheckPointsUser.displayName}'s Points",
+        "",
+        "",
+        "",
+        "",
+        "Points: ${tempVars.CheckPointsAmount}",
+        "",
+        "",
+        "Date",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "AddedPoints",
+      "guid": "6f1ec072-1e03-4375-a14f-cc3cdd54e625",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "afd690e1-9aee-48bd-9ba0-871e6894139e"
+        }
+      ],
+      "x": 989,
+      "y": 1642,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Points added.",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "PointsRemovedReply",
+      "guid": "0f6425e2-2440-487c-af13-de2b94ca1ffc",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "56748383-e4c9-4885-bcde-e0bc5ea03219"
+        }
+      ],
+      "x": 984,
+      "y": 1999,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Points taken.",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "kick",
+      "guid": "a941b7c9-c21e-40fc-a257-901c3ce6b01b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "deb9b9ce-ef7d-4ed7-a2a4-e9c0dfddb7cc"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 5,
+      "y": 544
+    },
+    {
+      "type": "response",
+      "name": "KickPart_1",
+      "guid": "33eb5300-d4d8-4894-bea7-892844d11e36",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "218a76ca-0bf9-42c3-b9ee-e6c88e095204"
+        }
+      ],
+      "x": 495,
+      "y": 678,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FF5252",
+        "Im going to kick YOU",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "CheckIfKonrek",
+      "guid": "218a76ca-0bf9-42c3-b9ee-e6c88e095204",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "a707c085-13dd-4f08-917b-259b6df443fe"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "33eb5300-d4d8-4894-bea7-892844d11e36"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "deb9b9ce-ef7d-4ed7-a2a4-e9c0dfddb7cc"
+        }
+      ],
+      "x": 335,
+      "y": 542,
+      "rtype": "Variable",
+      "rsubtype": "Check If String Contains",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "211959812030726144"
+      ],
+      "formnames": [
+        "stringtocheck",
+        "valuetocheck"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "CheckIfKonrek1",
+      "guid": "05f9a9d1-d61f-4fa0-846c-66106cf67d12",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "14991454-94af-431a-91e9-94e40c9e73d0"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3316bdbd-37a7-4190-bd9b-f38232584373"
+        }
+      ],
+      "x": 334,
+      "y": 61,
+      "rtype": "Variable",
+      "rsubtype": "Check If String Contains",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "211959812030726144"
+      ],
+      "formnames": [
+        "stringtocheck",
+        "valuetocheck"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "CheckIfKonrek2",
+      "guid": "85a67942-cd2a-4ddb-999c-1aabb03f98db",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "ce547410-7fe1-4e22-a243-7b5fb94043ef"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d810a818-f981-494e-805d-948084393f9e"
+        }
+      ],
+      "x": 346,
+      "y": 946,
+      "rtype": "Variable",
+      "rsubtype": "Check If String Contains",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "211959812030726144"
+      ],
+      "formnames": [
+        "stringtocheck",
+        "valuetocheck"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "CheckIfKonrek3",
+      "guid": "0bef6fea-72b7-4dc9-be23-7ed33fe1b449",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "771363ef-bc9c-4d41-8aa0-052e7e26902e"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "041cb8f1-ed23-455e-8476-83236bfbd096"
+        }
+      ],
+      "x": 349,
+      "y": 1638,
+      "rtype": "Variable",
+      "rsubtype": "Check If String Contains",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "211959812030726144"
+      ],
+      "formnames": [
+        "stringtocheck",
+        "valuetocheck"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "CheckIfKonrek4",
+      "guid": "1aeddb7c-f916-4dd6-9c0c-63b168b0582e",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "3a7b8daa-caa7-4cd2-a175-9e743937a8ad"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b7a42bcb-0916-406d-befe-a4350d814aba"
+        }
+      ],
+      "x": 344,
+      "y": 1992,
+      "rtype": "Variable",
+      "rsubtype": "Check If String Contains",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "211959812030726144"
+      ],
+      "formnames": [
+        "stringtocheck",
+        "valuetocheck"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "CheckIfKonrek5",
+      "guid": "040826cb-85d3-4b8e-b4b2-11f9819252ec",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "196aae5e-411f-413d-af99-846123aabe8b"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a2399cb7-a22f-4120-ba74-117805be131f"
+        }
+      ],
+      "x": 338,
+      "y": 2396,
+      "rtype": "Variable",
+      "rsubtype": "Check If String Contains",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "211959812030726144"
+      ],
+      "formnames": [
+        "stringtocheck",
+        "valuetocheck"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "GetUserToKick",
+      "guid": "a707c085-13dd-4f08-917b-259b6df443fe",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "5daeb483-2e3e-4ee8-95ea-c7cc26da6837"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "218a76ca-0bf9-42c3-b9ee-e6c88e095204"
+        }
+      ],
+      "x": 497,
+      "y": 543,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "UserToKick",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "Get Reason To kick",
+      "guid": "5daeb483-2e3e-4ee8-95ea-c7cc26da6837",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "KickReason",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "28430e0d-dda8-448a-a137-0576069b8964"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a707c085-13dd-4f08-917b-259b6df443fe"
+        }
+      ],
+      "x": 656,
+      "y": 545,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "KickReason",
+        "Text",
+        "temp",
+        "2+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "KickThem",
+      "guid": "28430e0d-dda8-448a-a137-0576069b8964",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "d45e0ca5-ff9d-47db-9952-9cd9c72eaa3c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "5daeb483-2e3e-4ee8-95ea-c7cc26da6837"
+        }
+      ],
+      "x": 819,
+      "y": 548,
+      "rtype": "User Action",
+      "rsubtype": "Kick User",
+      "formdata": [
+        "${tempVars.UserToKick.id}",
+        "${tempVars.KickReason}"
+      ],
+      "formnames": [
+        "user",
+        "reason"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "alert",
+      "guid": "ec277c4b-5d84-471d-a0dd-e96a5e9ec093",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "665d6903-f09d-484d-b839-bf0c9fe31004"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 43,
+      "y": 2782
+    },
+    {
+      "type": "response",
+      "name": "DMKonrek2",
+      "guid": "c3dca523-3ffc-4215-a4c9-145abc2e0bf0",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "5b5f8fcc-974c-4922-b071-a31e01331ad5"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c798f2b5-2826-4edf-a036-8a596e133fba"
+        }
+      ],
+      "x": 527,
+      "y": 2784,
+      "rtype": "Message",
+      "rsubtype": "Send DM",
+      "formdata": [
+        "msg",
+        "211959812030726144",
+        "Konrek you've been alerted! In: <#${dbsVars.CommandChannel.id}> by: ${dbsVars.CommandAuthor.displayName}",
+        "FFFFFF",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "formnames": [
+        "msgtype",
+        "userid",
+        "msg",
+        "color",
+        "title",
+        "url",
+        "author",
+        "description",
+        "thumbnail",
+        "image",
+        "timestamp"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "DMKonrek1",
+      "guid": "c798f2b5-2826-4edf-a036-8a596e133fba",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c3dca523-3ffc-4215-a4c9-145abc2e0bf0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "665d6903-f09d-484d-b839-bf0c9fe31004"
+        }
+      ],
+      "x": 366,
+      "y": 2782,
+      "rtype": "Message",
+      "rsubtype": "Send DM",
+      "formdata": [
+        "msg",
+        "${dbsVars.CommandAuthor.id}",
+        "Konrek has been alerted, thank you for using cloth.",
+        "FFFFFF",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "formnames": [
+        "msgtype",
+        "userid",
+        "msg",
+        "color",
+        "title",
+        "url",
+        "author",
+        "description",
+        "thumbnail",
+        "image",
+        "timestamp"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "DeleteAlert",
+      "guid": "5b5f8fcc-974c-4922-b071-a31e01331ad5",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c3dca523-3ffc-4215-a4c9-145abc2e0bf0"
+        }
+      ],
+      "x": 686,
+      "y": 2786,
+      "rtype": "Message",
+      "rsubtype": "Delete Message",
+      "formdata": [
+        "${dbsVars.CommandMessage.id}",
+        "${dbsVars.CommandChannel.id}"
+      ],
+      "formnames": [
+        "varname",
+        "channelName"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "ban",
+      "guid": "2874f4fb-97fc-4f29-9fe4-aa56864aad6f",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3316bdbd-37a7-4190-bd9b-f38232584373"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 12,
+      "y": 59
+    },
+    {
+      "type": "response",
+      "name": "GetUserToKick_1",
+      "guid": "14991454-94af-431a-91e9-94e40c9e73d0",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "bfbe6fdd-d6c4-469e-9abc-60d518822113"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "05f9a9d1-d61f-4fa0-846c-66106cf67d12"
+        }
+      ],
+      "x": 498,
+      "y": 63,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "UserToBan",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "Get Reason To kick_1",
+      "guid": "8104a7a2-e14b-4ec5-bc07-c4c582887d12",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "BanReason",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "25f2b39d-a7c7-4802-9e78-7d52e764aa01"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bfbe6fdd-d6c4-469e-9abc-60d518822113"
+        }
+      ],
+      "x": 829,
+      "y": 65,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "BanReason",
+        "Text",
+        "temp",
+        "3+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "BanThem",
+      "guid": "25f2b39d-a7c7-4802-9e78-7d52e764aa01",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "cb1fc540-6ed5-4191-b46c-85568020ac29"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8104a7a2-e14b-4ec5-bc07-c4c582887d12"
+        }
+      ],
+      "x": 1007,
+      "y": 73,
+      "rtype": "User Action",
+      "rsubtype": "Ban User",
+      "formdata": [
+        "${tempVars.UserToBan.id}",
+        "${tempVars.BanReason}",
+        "1${tempVars.BanTime}"
+      ],
+      "formnames": [
+        "user",
+        "reason",
+        "days"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "Time",
+      "guid": "bfbe6fdd-d6c4-469e-9abc-60d518822113",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "BanTime",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8104a7a2-e14b-4ec5-bc07-c4c582887d12"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "14991454-94af-431a-91e9-94e40c9e73d0"
+        }
+      ],
+      "x": 662,
+      "y": 82,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "BanTime",
+        "Number",
+        "temp",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "KickBanMessage",
+      "guid": "d45e0ca5-ff9d-47db-9952-9cd9c72eaa3c",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "28430e0d-dda8-448a-a137-0576069b8964"
+        }
+      ],
+      "x": 977,
+      "y": 549,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "1138969028686258236",
+        "4DEDFF",
+        "Kicked!",
+        "",
+        "",
+        "",
+        "",
+        "${dbsVars.CommandAuthor.displayName} kicked ${tempVars.UserToKick.displayName} for ${tempVars.KickReason}\n\nServer: ${dbsVars.guild.name}",
+        "",
+        "",
+        "Date",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "KickBanMessage_1",
+      "guid": "cb1fc540-6ed5-4191-b46c-85568020ac29",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "25f2b39d-a7c7-4802-9e78-7d52e764aa01"
+        }
+      ],
+      "x": 1172,
+      "y": 65,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "1138969028686258236",
+        "FF0000",
+        "Banned!",
+        "",
+        "",
+        "",
+        "",
+        "${dbsVars.CommandAuthor.displayName} banned ${tempVars.UserToKick.displayName} for ${tempVars.KickReason} \n\nDays: ${tempVars.BanTime}\n\nServer: ${dbsVars.guild.name}",
+        "",
+        "",
+        "Date",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "Multi",
+      "guid": "3316bdbd-37a7-4190-bd9b-f38232584373",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "05f9a9d1-d61f-4fa0-846c-66106cf67d12"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2874f4fb-97fc-4f29-9fe4-aa56864aad6f"
+        },
+        {
+          "label": "trigger",
+          "id": "e94cc00d-af05-41d3-b395-e77ee395a623"
+        }
+      ],
+      "x": 172,
+      "y": 53,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "command",
+      "name": "Ban",
+      "guid": "e94cc00d-af05-41d3-b395-e77ee395a623",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3316bdbd-37a7-4190-bd9b-f38232584373"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 8,
+      "y": 147
+    },
+    {
+      "type": "response",
+      "name": "Multi1",
+      "guid": "d810a818-f981-494e-805d-948084393f9e",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "85a67942-cd2a-4ddb-999c-1aabb03f98db"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e49b7737-07b3-460a-a851-18529927d58e"
+        },
+        {
+          "label": "trigger",
+          "id": "8af07cf7-13a8-494b-9f80-9eb995b8728c"
+        }
+      ],
+      "x": 185,
+      "y": 943,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi2",
+      "guid": "deb9b9ce-ef7d-4ed7-a2a4-e9c0dfddb7cc",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "218a76ca-0bf9-42c3-b9ee-e6c88e095204"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a941b7c9-c21e-40fc-a257-901c3ce6b01b"
+        },
+        {
+          "label": "trigger",
+          "id": "f3ec4d6a-ff59-43ec-a790-86c09c0e6f0a"
+        }
+      ],
+      "x": 173,
+      "y": 543,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi3",
+      "guid": "710b8876-eb5e-48cb-a605-fde1281db511",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "03123091-fd15-4658-9014-0b648463069f"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2db50d1e-c28f-40ec-92c4-be226055bb0d"
+        },
+        {
+          "label": "trigger",
+          "id": "b269b768-43e4-44f8-b37d-67d153b667eb"
+        }
+      ],
+      "x": 226,
+      "y": 1232,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi4",
+      "guid": "40598096-5101-49ea-8ac2-744521bdf667",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        },
+        {
+          "label": "trigger",
+          "id": "306e6094-2bbb-475a-9cf8-241ef460e79f"
+        }
+      ],
+      "x": 1744,
+      "y": 174,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi5",
+      "guid": "665d6903-f09d-484d-b839-bf0c9fe31004",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c798f2b5-2826-4edf-a036-8a596e133fba"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ec277c4b-5d84-471d-a0dd-e96a5e9ec093"
+        },
+        {
+          "label": "trigger",
+          "id": "6f037a5e-b97d-4a45-adff-d1b210f4b4fe"
+        }
+      ],
+      "x": 203,
+      "y": 2780,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi6",
+      "guid": "041cb8f1-ed23-455e-8476-83236bfbd096",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "0bef6fea-72b7-4dc9-be23-7ed33fe1b449"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "25e54cbd-421b-4790-b758-b94dffe2f0f5"
+        },
+        {
+          "label": "trigger",
+          "id": "23b58fcf-213c-4f59-868b-ce17d3019423"
+        },
+        {
+          "label": "trigger",
+          "id": "8357f012-889d-4d79-9470-75191d12982f"
+        }
+      ],
+      "x": 187,
+      "y": 1636,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi7",
+      "guid": "b7a42bcb-0916-406d-befe-a4350d814aba",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "1aeddb7c-f916-4dd6-9c0c-63b168b0582e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "52ab2800-9098-4bb3-a801-b70902338f16"
+        },
+        {
+          "label": "trigger",
+          "id": "a4a55e7a-9703-411b-9fb3-6b4451aba0ee"
+        },
+        {
+          "label": "trigger",
+          "id": "af7ab329-59fb-4be1-83d6-9f968f048af2"
+        }
+      ],
+      "x": 182,
+      "y": 1990,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "response",
+      "name": "Multi8",
+      "guid": "a2399cb7-a22f-4120-ba74-117805be131f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "040826cb-85d3-4b8e-b4b2-11f9819252ec"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "66e89755-1e3c-4f17-bdc3-b4554db23a52"
+        },
+        {
+          "label": "trigger",
+          "id": "bb0b2d57-860b-438c-9cba-b94cdf691ae0"
+        },
+        {
+          "label": "trigger",
+          "id": "f8b4895d-4fef-44f2-9ce7-d3edbb98cab7"
+        }
+      ],
+      "x": 177,
+      "y": 2394,
+      "rtype": "Control",
+      "rsubtype": "Multiple Input",
+      "messageActionRows": []
+    },
+    {
+      "type": "command",
+      "name": "Kick",
+      "guid": "f3ec4d6a-ff59-43ec-a790-86c09c0e6f0a",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "deb9b9ce-ef7d-4ed7-a2a4-e9c0dfddb7cc"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 1,
+      "y": 633
+    },
+    {
+      "type": "command",
+      "name": "Alert",
+      "guid": "6f037a5e-b97d-4a45-adff-d1b210f4b4fe",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "665d6903-f09d-484d-b839-bf0c9fe31004"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 41,
+      "y": 2871
+    },
+    {
+      "type": "command",
+      "name": "Checkpoints",
+      "guid": "bb0b2d57-860b-438c-9cba-b94cdf691ae0",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a2399cb7-a22f-4120-ba74-117805be131f"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 13,
+      "y": 2480
+    },
+    {
+      "type": "command",
+      "name": "CheckPoints",
+      "guid": "f8b4895d-4fef-44f2-9ce7-d3edbb98cab7",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a2399cb7-a22f-4120-ba74-117805be131f"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 12,
+      "y": 2566
+    },
+    {
+      "type": "command",
+      "name": "MinusPoints",
+      "guid": "af7ab329-59fb-4be1-83d6-9f968f048af2",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "b7a42bcb-0916-406d-befe-a4350d814aba"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 19,
+      "y": 2156
+    },
+    {
+      "type": "command",
+      "name": "Minuspoints",
+      "guid": "a4a55e7a-9703-411b-9fb3-6b4451aba0ee",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "b7a42bcb-0916-406d-befe-a4350d814aba"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 20,
+      "y": 2073
+    },
+    {
+      "type": "command",
+      "name": "AddPoints",
+      "guid": "8357f012-889d-4d79-9470-75191d12982f",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "041cb8f1-ed23-455e-8476-83236bfbd096"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 27,
+      "y": 1812
+    },
+    {
+      "type": "command",
+      "name": "Addpoints",
+      "guid": "23b58fcf-213c-4f59-868b-ce17d3019423",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "041cb8f1-ed23-455e-8476-83236bfbd096"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 24,
+      "y": 1725
+    },
+    {
+      "type": "command",
+      "name": "Points",
+      "guid": "b269b768-43e4-44f8-b37d-67d153b667eb",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "710b8876-eb5e-48cb-a605-fde1281db511"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 62,
+      "y": 1321
+    },
+    {
+      "type": "command",
+      "name": "Setup",
+      "guid": "8af07cf7-13a8-494b-9f80-9eb995b8728c",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "d810a818-f981-494e-805d-948084393f9e"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 22,
+      "y": 1035
+    },
+    {
+      "type": "command",
+      "name": "Help",
+      "guid": "306e6094-2bbb-475a-9cf8-241ef460e79f",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "40598096-5101-49ea-8ac2-744521bdf667"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 1749,
+      "y": 15
+    }
+  ]
+}
